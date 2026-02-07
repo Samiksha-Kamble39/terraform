@@ -67,9 +67,9 @@ resource "aws_eks_cluster" "eks_cluster" {
 
   vpc_config {
     subnet_ids = [
-      aws_subnet.az2.id,
-      aws_subnet.az3.id,
-      aws_subnet.az4.id
+      data.aws_subnet.az2.id,
+      data.aws_subnet.az3.id,
+      data.aws_subnet.az4.id
     ]
   }
 
@@ -84,9 +84,9 @@ resource "aws_eks_node_group" "node_group" {
   node_role_arn   = aws_iam_role.node_group_role.arn
 
   subnet_ids = [
-    aws_subnet.az2.id,
-    aws_subnet.az3.id,
-    aws_subnet.az4.id
+    data.aws_subnet.az2.id,
+    data.aws_subnet.az3.id,
+    data.aws_subnet.az4.id
   ]
 
   scaling_config {
